@@ -1,0 +1,89 @@
+<div>
+    <h3>Q1. WAP to print all prime number in range from 1 to 100</h3>
+    <button onclick="prime();">Get prime</button><br>
+    <div id="res">
+        <br>
+    </div>
+
+    <h3>Q2) WAP to read a number from textbox and print Factorial
+        of Number in div</h3>
+    <input type="text" id="num1" placeholder="Enter a number">
+    <button onclick="fact();">Get factorial</button><br>
+    <div id="res1"></div>
+
+    <h3>Q3) WAP to read marks of 5 subjects and print their total.
+        Also print percentage and check if student is passed or
+        not</h3>
+    SPCC: <input type="text" id="num2" placeholder="Enter a number"><br><br>
+    CSS: <input type="text" id="num3" placeholder="Enter a number"><br><br>
+    DSA: <input type="text" id="num4" placeholder="Enter a number"><br><br>
+    DDA: <input type="text" id="num5" placeholder="Enter a number"><br><br>
+    SPA: <input type="text" id="num6" placeholder="Enter a number"><br><br>
+    
+    <button onclick="total();">Get marks</button><br>
+    <div id="res2"></div>
+    <div id="res3"></div>
+    
+
+</div>
+<script>
+    function prime(){
+         var primeNum;
+         for(var i=2;i<=100;i++){
+            primeNum=1;
+            for(var j=2;j<=i/2;j++){
+                if(i%j==0){
+                    primeNum=0;
+                    break;
+                }
+            }
+            if(primeNum==1){
+                //document.write(i+"<br>");
+                
+                console.log(i)
+                 document.getElementById("res").innerHTML+=`${i}`+" ";  
+                 
+            
+            }
+         }
+    }
+
+    function fact(){
+      var num=document.getElementById("num1").value
+      
+      var fact = 1;
+        for (i = 1; i <= num; i++) {
+            fact *= i;
+        }
+        console.log(`The factorial of ${num} is ${fact}.`);
+        document.getElementById("res1").innerHTML=`The factorial of ${num} is ${fact}.`
+    
+        }
+    
+    function total(){
+        var a=document.getElementById("num2").value
+        var b=document.getElementById("num3").value
+        
+        var c=document.getElementById("num4").value
+        var d=document.getElementById("num5").value
+        var e=document.getElementById("num6").value
+
+        var sum=parseInt(a)+parseInt(b)+parseInt(c)+parseInt(d)+parseInt(e)
+        var per= (sum*100)/500
+        console.log(sum)
+        document.getElementById("res2").innerHTML=`You got ${sum} and
+        your percentage is ${per}.`
+
+        if(per>=35){
+            document.getElementById("res3").innerHTML=`Congrats! You passed.`
+        }
+        else{
+            document.getElementById("res3").innerHTML= `Sorry! You failed.`
+        }
+
+
+    }
+    
+      
+   
+</script>
